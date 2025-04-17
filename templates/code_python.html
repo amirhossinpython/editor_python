@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ویرایشگر پایتون</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="editor-container">
+        <div class="editor-header">
+            <button class="btn back-btn" onclick="window.location.href='/'">
+                <i class="fas fa-arrow-left"></i> بازگشت
+            </button>
+            <h2>ویرایشگر پایتون <i class="fab fa-python"></i></h2>
+            <div class="action-buttons">
+                <button class="btn run-btn" id="runCode">
+                    <i class="fas fa-play"></i> اجرا
+                </button>
+                <button class="btn save-btn" id="saveCode">
+                    <i class="fas fa-save"></i> ذخیره
+                </button>
+                <button class="btn clear-btn" id="clearCode">
+                    <i class="fas fa-trash"></i> پاک‌کردن
+                </button>
+            </div>
+        </div>
+        
+        <div class="editor-wrapper">
+            <div class="line-numbers"></div>
+            <textarea id="pythonCode" spellcheck="false">print("سلام دنیا!")</textarea>
+            <pre><code class="language-python" id="highlighted-code"></code></pre>
+        </div>
+        
+        <div class="terminal">
+            <div class="terminal-header">
+                <h3>ترمینال</h3>
+                <button class="btn clear-terminal" id="clearTerminal">
+                    <i class="fas fa-broom"></i> پاک‌کردن
+                </button>
+            </div>
+            <div class="terminal-output" id="terminalOutput"></div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

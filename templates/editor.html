@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Online Compiler</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="compiler-container">
+        <div class="header">
+            <h1><i class="fab fa-python"></i> Python Online Compiler</h1>
+            <div class="controls">
+                <button id="run-btn" class="btn primary">
+                    <i class="fas fa-play"></i> Run
+                </button>
+                <button id="save-btn" class="btn">
+                    <i class="fas fa-save"></i> Save
+                </button>
+                <button id="clear-btn" class="btn danger">
+                    <i class="fas fa-trash"></i> Clear
+                </button>
+            </div>
+        </div>
+
+        <div class="editor-panel">
+            <div class="editor-container">
+                <textarea id="python-editor">print("Welcome to Python Online Compiler!")
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+print(factorial(5))</textarea>
+            </div>
+
+            <div class="terminal-panel">
+                <div class="terminal-header">
+                    <h3><i class="fas fa-terminal"></i> Output</h3>
+                    <button id="clear-terminal" class="btn small">
+                        <i class="fas fa-broom"></i> Clear
+                    </button>
+                </div>
+                <div id="terminal-output"></div>
+                <div id="input-panel" class="hidden">
+                    <input type="text" id="user-input" placeholder="Enter input...">
+                    <button id="submit-input" class="btn small primary">
+                        <i class="fas fa-paper-plane"></i> Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchbrackets.min.js"></script>
+    <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+</body>
+</html>
